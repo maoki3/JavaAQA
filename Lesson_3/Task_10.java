@@ -1,5 +1,3 @@
-package src;
-
 public class Task_10 {
 
     public static void arraySwitching() {

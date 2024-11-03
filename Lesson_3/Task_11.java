@@ -1,5 +1,3 @@
-package src;
-
 public class Task_11 {
 
     public static void emptyArray() {
