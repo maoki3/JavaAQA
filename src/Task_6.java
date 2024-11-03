@@ -1,4 +1,5 @@
 public class Task_6 {
+
     public static void negativeOrPositive(int number) {
 
         if (number >= 0) {
