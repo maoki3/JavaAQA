@@ -1,5 +1,3 @@
-package src;
-
 public class Task_2 {
     public static void checkSumSign() {
 
