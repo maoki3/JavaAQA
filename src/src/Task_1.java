@@ -1,3 +1,5 @@
+package src;
+
 public class Task_1 {
 
     public static void printThreeWords() {

@@ -1,3 +1,5 @@
+package src;
+
 public class Task_13 {
 
     public static void diagonalArray() {

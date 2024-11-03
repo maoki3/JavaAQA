@@ -1,3 +1,5 @@
+package src;
+
 public class Task_4 {
 
     public static void compareNumbers() {

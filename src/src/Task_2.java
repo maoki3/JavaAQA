@@ -1,5 +1,6 @@
-public class Task_2 {
+package src;
 
+public class Task_2 {
     public static void checkSumSign() {
 
         int a = 2;

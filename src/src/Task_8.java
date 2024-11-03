@@ -1,3 +1,5 @@
+package src;
+
 public class Task_8 {
 
     public static void manyString(String text, int count) {

@@ -1,3 +1,5 @@
+package src;
+
 public class Task_5 {
 
     public static void amountRange(int a, int b) {

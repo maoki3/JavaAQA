@@ -1,3 +1,5 @@
+package src;
+
 public class Task_7 {
 
     public static void negativeOrPositiveNumber(int number) {

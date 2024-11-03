@@ -1,3 +1,5 @@
+package src;
+
 public class Task_12 {
 
     public static void subtractMultiplyArray() {

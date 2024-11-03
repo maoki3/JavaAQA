@@ -1,3 +1,5 @@
+package src;
+
 public class Task_3 {
 
     public static void printColor() {
