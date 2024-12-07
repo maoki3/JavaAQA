@@ -40,6 +40,5 @@ bin/
 /.idea/
 
 # Игнорировать файл
-/README.md
 /LICENSE
 /untitled.iml
