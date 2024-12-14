@@ -28,20 +28,7 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-# Игнорировать папку
-
-/src/Lesson_3
-/src/Lesson_4
-/src/Lesson_5
-/src/Lesson_6
-/src/Lesson_7
-/src/Lesson_8
-/src/Lesson_9_10
-/src/Lesson_11
-/src/Lesson_12
-**/.idea/
-
-# Игнорировать файл
+# Игнорировать
 /LICENSE
 /untitled.iml
 /src/Lesson_4/
@@ -54,3 +41,4 @@ bin/
 /src/Lesson_12/
 /.idea/
 /.gitignore
+/src/Lesson_13/
