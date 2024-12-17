@@ -27,6 +27,9 @@ public class MtsByTest {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("https://www.mts.by/");
 
+        // Очистка куки перед каждым тестом
+        driver.manage().deleteAllCookies();
+
         // Принятие куки, если окно появляется
         try {
             WebElement cookieButton = driver.findElement(By.id("cookie-agree"));
@@ -55,16 +58,37 @@ public class MtsByTest {
         // Проверка наличия логотипов платёжных систем
         List<WebElement> paymentLogos = driver.findElements(By.cssSelector("#pay-section ul"));
         assertFalse(paymentLogos.isEmpty(), "Логотипы платёжных систем не найдены.");
+
+        // Проверка наличия логотипа Visa
+        List<WebElement> paymentLogoVisa = driver.findElements(By.xpath("//img[@alt=\"Visa\"]"));
+        assertFalse(paymentLogoVisa.isEmpty(), "Логотип Visa не найден.");
+
+        // Проверка наличия логотипа Verified By Visa
+        List<WebElement> paymentLogoVFBVisa = driver.findElements(By.xpath("//img[@alt=\"Verified By Visa\"]"));
+        assertFalse(paymentLogoVFBVisa.isEmpty(), "Логотип Verified By Visa не найден.");
+
+        // Проверка наличия логотипа MasterCard
+        List<WebElement> paymentLogoMasterCard = driver.findElements(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li[3]/img"));
+        assertFalse(paymentLogoMasterCard.isEmpty(), "Логотип MasterCard не найден.");
+
+        // Проверка наличия логотипа MasterCard SecureCode
+        List<WebElement> paymentLogoMasterCardSC = driver.findElements(By.xpath("//img[@alt=\"MasterCard Secure Code\"]"));
+        assertFalse(paymentLogoMasterCardSC.isEmpty(), "Логотип MasterCard SecureCode не найден.");
+
+        // Проверка наличия логотипа Белкарт
+        List<WebElement> paymentLogoBelCard = driver.findElements(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li[5]/img"));
+        assertFalse(paymentLogoBelCard.isEmpty(), "Логотип Белкарт не найден.");
     }
 
     @Test
-    public void testMoreInfoLinkFunctionality() {
+    public void testMoreInfoLinkFunctionality() { // Прошу объяснить или направить - у меня очень большая задержка (43/46ms)
+
         // Проверка работы ссылки «Подробнее о сервисе»
         WebElement moreInfoLink = driver.findElement(By.linkText("Подробнее о сервисе"));
         moreInfoLink.click();
 
-        // Проверка, что открылась новая страница
-        WebElement replenishmentElement = new WebDriverWait(driver, Duration.ofSeconds(20))
+        // Проверка результата (открылась новая страница)
+        WebElement replenishmentElement = new WebDriverWait(driver, Duration.ofSeconds(46))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[6]/main/div/div[4]/ul[1]/li[1]")));
         assertNotNull(replenishmentElement, "Ссылка 'Подробнее о сервисе' не работает.");
     }
@@ -75,15 +99,19 @@ public class MtsByTest {
         // Кликаем на всплывающее меню в блоке "Онлайн пополнение без комиссии"
         WebElement serviceOption = driver.findElement(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[1]/div[1]/div[2]/button"));
         serviceOption.click();
+
         // Во всплывающем меню кликаем на "Услуги связи"
         WebElement serviceOptionChoice = driver.findElement(By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[1]/div[1]/div[2]/ul/li[1]/p"));
         serviceOptionChoice.click();
+
         // Вводим номер телефона
         WebElement phoneNumberInput = driver.findElement(By.id("connection-phone"));
         phoneNumberInput.sendKeys("297777777");
+
         // Вводим сумму в рублях
         WebElement sumRublesInput = driver.findElement(By.xpath("//*[@id=\"connection-sum\"]"));
         sumRublesInput.sendKeys("100");
+
         // Кликаем на кнопку "Продолжить"
         WebElement continueButton = driver.findElement(By.xpath("//*[@id=\"pay-connection\"]/button"));
         continueButton.click();
